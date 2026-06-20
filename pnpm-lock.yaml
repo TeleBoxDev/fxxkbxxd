@@ -274,8 +274,23 @@ importers:
       '@fxxkbxxd/update':
         specifier: workspace:*
         version: link:../builtin-update
+      '@plugin/aban':
+        specifier: workspace:*
+        version: link:../../plugins/aban
 
   apps/plugin-core: {}
+
+  plugins/aban:
+    dependencies:
+      '@fxxkbxxd/plugin-core':
+        specifier: workspace:*
+        version: link:../../apps/plugin-core
+
+  plugins/eat:
+    dependencies:
+      '@fxxkbxxd/plugin-core':
+        specifier: workspace:*
+        version: link:../../apps/plugin-core
 
 packages:
 

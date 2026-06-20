@@ -1,0 +1,11 @@
+{
+  "name": "@plugin/eat",
+  "version": "0.0.1",
+  "type": "module",
+  "dependencies": {
+    "@fxxkbxxd/plugin-core": "workspace:*"
+  },
+  "exports": {
+    ".": "./src/index.js"
+  }
+}

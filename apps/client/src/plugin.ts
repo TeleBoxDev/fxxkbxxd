@@ -10,6 +10,10 @@ import type {
 import { BuiltinHelp } from '@fxxkbxxd/help';
 import { BuiltinUpdate } from '@fxxkbxxd/update';
 
+// 官方功能性插件
+
+import { AbanPlugin } from '@plugin/aban';
+
 // 最基本的插件 help，由于会访问 plugins 等全局变量来展示用户安装的插件等信息，
 // 可能引用循环造成内存泄漏，最好单独排列出来
 let helpPlugin: BuiltinHelp;
@@ -25,6 +29,14 @@ function loadBuiltinPlugins(): void {
   const update = new BuiltinUpdate();
   let builtinPlugins = [update];
   builtinPlugins.forEach((plugin) => {
+    plugins.set(plugin.pluginName, plugin);
+  });
+}
+
+function loadOfficialPlugins(): void {
+  const aban = new AbanPlugin();
+  let officialPlugins = [aban];
+  officialPlugins.forEach((plugin) => {
     plugins.set(plugin.pluginName, plugin);
   });
 }
@@ -54,6 +66,9 @@ function loadPluginCommandHandlers(): void {
 function loadPlugins(): void {
   // 加载 基本插件
   loadBuiltinPlugins();
+
+  // 加载 官方提供的功能性插件
+  loadOfficialPlugins();
 
   // 添加所有插件的 Command Handler
   loadPluginCommandHandlers();
