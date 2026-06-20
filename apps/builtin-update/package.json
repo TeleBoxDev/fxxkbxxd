@@ -1,0 +1,12 @@
+{
+  "name": "@fxxkbxxd/update",
+  "version": "0.0.1",
+  "description": "使用 git pull 来更新 fxxkbxxd",
+  "type": "module",
+  "dependencies": {
+    "@fxxkbxxd/plugin-core": "workspace:*"
+  },
+  "exports": {
+    ".": "./src/index.js"
+  }
+}

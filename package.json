@@ -1,0 +1,38 @@
+{
+  "name": "fxxkbxxd",
+  "version": "0.0.1",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "start": "pnpm --filter @fxxkbxxd/client start",
+    "dev": "pnpm --filter @fxxkbxxd/client dev",
+    "format": "prettier --write .",
+    "lint": "eslint . --ext .ts"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "^11.4.0",
+      "onFail": "download"
+    }
+  },
+  "type": "module",
+  "dependencies": {
+    "@mtcute/dispatcher": "^0.29.7",
+    "@mtcute/markdown-parser": "^0.30.1",
+    "@mtcute/node": "^0.29.7",
+    "@types/node": "^25.9.1",
+    "dotenv": "^17.4.2",
+    "qr": "^0.6.0",
+    "tsx": "^4.22.3",
+    "typescript": "^6.0.3"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.60.0",
+    "@typescript-eslint/parser": "^8.60.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
+    "prettier": "^3.8.3"
+  }
+}

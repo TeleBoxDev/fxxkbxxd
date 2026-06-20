@@ -1,0 +1,4 @@
+.env
+
+account-info/*
+!account-info/.gitkeep
