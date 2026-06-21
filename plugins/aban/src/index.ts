@@ -7,9 +7,9 @@ import type { Peer } from '@mtcute/node';
 // 这样可以避免在每次命令调用时都重新创建 BanManager 实例。
 let banManager: BanManager | null = null;
 
-function getBanManager(msg: MessageContext): BanManager {
+function getBanManager(): BanManager {
   if (!banManager) {
-    banManager = new BanManager(msg);
+    banManager = new BanManager();
   }
   return banManager;
 }
@@ -42,21 +42,21 @@ export class AbanPlugin extends PluginCore {
       const user = await getTargetUserId(msg);
       if (!user) return;
 
-      const manager = getBanManager(msg);
+      const manager = getBanManager();
       await manager.kickUser(msg, user);
     },
     ban: async (msg: MessageContext) => {
       const user = await getTargetUserId(msg);
       if (!user) return;
 
-      const manager = getBanManager(msg);
+      const manager = getBanManager();
       await manager.banUser(msg, user);
     },
     unban: async (msg: MessageContext) => {
       const user = await getTargetUserId(msg);
       if (!user) return;
 
-      const manager = getBanManager(msg);
+      const manager = getBanManager();
       await manager.unbanUser(msg, user);
     },
     mute: async (msg: MessageContext) => {
@@ -101,32 +101,32 @@ export class AbanPlugin extends PluginCore {
         }
       }
 
-      const manager = getBanManager(msg);
+      const manager = getBanManager();
       await manager.muteUser(msg, user, durationSeconds);
     },
     unmute: async (msg: MessageContext) => {
       const user = await getTargetUserId(msg);
       if (!user) return;
 
-      const manager = getBanManager(msg);
+      const manager = getBanManager();
       await manager.unmuteUser(msg, user);
     },
     sb: async (msg: MessageContext) => {
       const user = await getTargetUserId(msg);
       if (!user) return;
 
-      const manager = getBanManager(msg);
+      const manager = getBanManager();
       await manager.banUserInAllAdminChats(msg, user);
     },
     unsb: async (msg: MessageContext) => {
       const user = await getTargetUserId(msg);
       if (!user) return;
 
-      const manager = getBanManager(msg);
+      const manager = getBanManager();
       await manager.unbanUserInAllAdminChats(msg, user);
     },
     refreshAban: async (msg: MessageContext) => {
-      const manager = getBanManager(msg);
+      const manager = getBanManager();
       await manager.refreshAdminDialogs(msg);
     },
   };
