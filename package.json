@@ -19,6 +19,7 @@
   "type": "module",
   "dependencies": {
     "@mtcute/dispatcher": "^0.29.7",
+    "@mtcute/html-parser": "^0.30.1",
     "@mtcute/markdown-parser": "^0.30.1",
     "@mtcute/node": "^0.29.7",
     "@types/node": "^25.9.1",

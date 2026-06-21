@@ -14,6 +14,6 @@
     "@fxxkbxxd/plugin-core": "workspace:*",
     "@fxxkbxxd/help": "workspace:*",
     "@fxxkbxxd/update": "workspace:*",
-    "@plugin/aban": "workspace:*"
+    "@fxxkbxxd/official-aban": "workspace:*"
   }
 }

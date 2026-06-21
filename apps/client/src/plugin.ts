@@ -12,7 +12,7 @@ import { BuiltinUpdate } from '@fxxkbxxd/update';
 
 // 官方功能性插件
 
-import { AbanPlugin } from '@plugin/aban';
+import { AbanPlugin } from '@fxxkbxxd/official-aban';
 
 // 最基本的插件 help，由于会访问 plugins 等全局变量来展示用户安装的插件等信息，
 // 可能引用循环造成内存泄漏，最好单独排列出来

@@ -1,6 +1,6 @@
 import { PluginCore } from '@fxxkbxxd/plugin-core';
 import { MessageContext } from '@mtcute/dispatcher';
-import { md } from '@mtcute/markdown-parser';
+import { html } from '@mtcute/html-parser';
 
 class BuiltinHelp extends PluginCore {
   private plugins: Map<string, PluginCore> = new Map();
@@ -19,16 +19,16 @@ class BuiltinHelp extends PluginCore {
       if (args.length > 1) {
         const pluginName = args[1];
         if (!pluginName) {
-          msg.replyText(md('请提供插件名称。'));
+          msg.replyText(html('请提供插件名称。'));
           return;
         }
         const plugin = this.plugins.get(pluginName);
         if (plugin) {
           msg.replyText(
-            md(`**${plugin.pluginName}**: kkkkk ${plugin.pluginDescription}`),
+            html(`<b>${plugin.pluginName}</b>\n${plugin.pluginDescription}`),
           );
         } else {
-          msg.replyText(md(`插件 **${pluginName}** 不存在。`));
+          msg.replyText(html(`插件 **${pluginName}** 不存在。`));
         }
         return;
       }
@@ -36,7 +36,7 @@ class BuiltinHelp extends PluginCore {
       for (const plugin of this.plugins.values()) {
         text += `- **${plugin.pluginName}**: ${plugin.pluginDescription}\n`;
       }
-      msg.replyText(md(text));
+      msg.replyText(html(text));
     },
   };
 }

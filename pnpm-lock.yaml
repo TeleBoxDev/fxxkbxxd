@@ -210,6 +210,9 @@ importers:
       '@mtcute/dispatcher':
         specifier: ^0.29.7
         version: 0.29.7
+      '@mtcute/html-parser':
+        specifier: ^0.30.1
+        version: 0.30.1
       '@mtcute/markdown-parser':
         specifier: ^0.30.1
         version: 0.30.1
@@ -268,15 +271,15 @@ importers:
       '@fxxkbxxd/help':
         specifier: workspace:*
         version: link:../builtin-help
+      '@fxxkbxxd/official-aban':
+        specifier: workspace:*
+        version: link:../../plugins/aban
       '@fxxkbxxd/plugin-core':
         specifier: workspace:*
         version: link:../plugin-core
       '@fxxkbxxd/update':
         specifier: workspace:*
         version: link:../builtin-update
-      '@plugin/aban':
-        specifier: workspace:*
-        version: link:../../plugins/aban
 
   apps/plugin-core: {}
 
@@ -512,6 +515,9 @@ packages:
 
   '@mtcute/html-parser@0.29.7':
     resolution: {integrity: sha512-9ia9ZQBuyRBUpBqMWZVzknm2aOtKHZWZKkMl3Vp+08b1hBjXnR5GvEbrCwxZFLQN/6vE3c5XozIMSqKUa695hQ==}
+
+  '@mtcute/html-parser@0.30.1':
+    resolution: {integrity: sha512-j/eosnkgDAUSKojIU7ArOvnZuIIpgGlsTDJep1r1WcdTYSzbAzKOi6usMT4JvyS6EKEbu1tu+KpJf14BHlcPbQ==}
 
   '@mtcute/markdown-parser@0.29.7':
     resolution: {integrity: sha512-V9Nut0V+y43355h3pwi4jpqXMmuqAPPVKNm0yhy4T2I08na8Lhwsem8Ppw/KD4PECkmkihwyrD4nw97whsvJ+g==}
@@ -1369,6 +1375,12 @@ snapshots:
   '@mtcute/html-parser@0.29.7':
     dependencies:
       '@mtcute/core': 0.29.7
+      htmlparser2: 10.1.0
+      long: 5.3.2
+
+  '@mtcute/html-parser@0.30.1':
+    dependencies:
+      '@mtcute/core': 0.30.1
       htmlparser2: 10.1.0
       long: 5.3.2
 
