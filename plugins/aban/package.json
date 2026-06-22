@@ -1,6 +1,6 @@
 {
   "name": "@fxxkbxxd/official-aban",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "dependencies": {
     "@fxxkbxxd/plugin-core": "workspace:*"

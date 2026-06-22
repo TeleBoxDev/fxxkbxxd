@@ -93,15 +93,27 @@ class BanManager {
     user: Peer,
   ): Promise<void> {
     const client = msg.client;
+
+    const channel = await client.resolveChannel(chat);
+    const participant = await client.resolvePeer(user);
+
     // 删除用户的聊天记录
-    await client.deleteUserHistory({
-      chatId: chat,
-      participantId: user,
+    await client.call({
+      _: 'channels.deleteParticipantHistory',
+      channel,
+      participant,
     });
+
     // 封禁用户
-    await client.banChatMember({
-      chatId: chat.id,
-      participantId: user,
+    await client.call({
+      _: 'channels.editBanned',
+      channel,
+      participant,
+      bannedRights: {
+        _: 'chatBannedRights',
+        untilDate: 0,
+        viewMessages: true,
+      },
     });
   }
 
@@ -121,9 +133,19 @@ class BanManager {
     chat: Peer,
     user: Peer,
   ): Promise<void> {
-    await msg.client.unbanChatMember({
-      chatId: chat.id,
-      participantId: user,
+    const client = msg.client;
+
+    const channel = await client.resolveChannel(chat);
+    const participant = await client.resolvePeer(user);
+
+    await msg.client.call({
+      _: 'channels.editBanned',
+      channel,
+      participant,
+      bannedRights: {
+        _: 'chatBannedRights',
+        untilDate: 0,
+      },
     });
   }
 
